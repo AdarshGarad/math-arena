@@ -1,5 +1,20 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#090b10"><title>MATH ARENA</title><link rel="stylesheet" href="styles.css"></head><body><div class="app"><header><b>∑ MATH ARENA</b><small>1-MINUTE MENTAL MATH</small></header><main>
-<section id="home" class="screen active"><p class="eyebrow">⚡ QUICK • FAIR • COMPETITIVE</p><h1>Think fast.<br><span>Score faster.</span></h1><p class="muted">One minute. Pure mental-math speed.</p><div class="card"><b>1-Minute Duel</b><p class="muted">Answer as many calculations as possible before the clock reaches zero.</p></div><p class="eyebrow">DIFFICULTY</p><div class="levels"><button class="level active" data-d="easy">EASY</button><button class="level" data-d="medium">MEDIUM</button><button class="level" data-d="hard">HARD</button></div><button id="start" class="primary" type="button" onclick="start()">
+<section id="home" class="screen active"><p class="eyebrow">⚡ QUICK • FAIR • COMPETITIVE</p><h1>Think fast.<br><span>Score faster.</span></h1><p class="muted">One minute. Pure mental-math speed.</p><div class="card"><b>1-Minute Duel</b><p class="muted">Answer as many calculations as possible before the clock reaches zero.</p></div><div class="card daily">
+  <p class="eyebrow">🔥 DAILY CHALLENGE</p>
+  <div id="dailyQuestion">24 × 5 = ?</div>
+
+  <form id="dailyForm">
+    <input id="dailyAnswer"
+           type="number"
+           inputmode="numeric"
+           autocomplete="off"
+           placeholder="Answer">
+
+    <button type="submit">CHECK</button>
+  </form>
+
+  <p id="dailyFeedback" class="fine"></p>
+</div><p class="eyebrow">DIFFICULTY</p><div class="levels"><button class="level active" data-d="easy">EASY</button><button class="level" data-d="medium">MEDIUM</button><button class="level" data-d="hard">HARD</button></div><button id="start" class="primary" type="button" onclick="start()">
 ENTER THE ARENA →
 </button><p class="fine">No ads. No subscriptions. Just math.</p></section>
 <section id="game" class="screen"><div class="gamebar"><div><p class="eyebrow">1-MINUTE DUEL</p><small id="qn">QUESTION 1</small></div><strong id="timer">1:00</strong></div><div class="track"><i id="progress"></i></div><div class="scores"><div>SCORE<strong id="score">0</strong></div><div>STREAK<strong id="streak">0</strong></div><div>BEST<strong id="best">0</strong></div></div><div class="question"><small>SOLVE</small><div id="q">12 × 7 = ?</div></div><form id="form"><input id="answer" type="number" inputmode="numeric" autocomplete="off" placeholder="Your answer"><button>SUBMIT</button></form><p id="feedback"></p><button id="quit" class="text">Quit duel</button></section>
