@@ -219,3 +219,44 @@ $("#home").addEventListener("click", () => {
 
 setDifficulty("easy");
 updateGameUI();
+setDifficulty("easy");
+updateGameUI();
+
+// DAILY CHALLENGE
+const dailyQuestions = [
+  { q: "24 × 5 = ?", a: 120 },
+  { q: "37 + 48 = ?", a: 85 },
+  { q: "96 − 37 = ?", a: 59 },
+  { q: "144 ÷ 12 = ?", a: 12 },
+  { q: "18 × 4 = ?", a: 72 },
+  { q: "75 + 26 = ?", a: 101 },
+  { q: "120 − 47 = ?", a: 73 }
+];
+
+const today = new Date().toISOString().slice(0, 10);
+const dailyIndex =
+  Math.floor(new Date(today).getTime() / 86400000) %
+  dailyQuestions.length;
+
+const daily = dailyQuestions[dailyIndex];
+
+$("#dailyQuestion").textContent = daily.q;
+
+$("#dailyForm").addEventListener("submit", event => {
+  event.preventDefault();
+
+  const input = $("#dailyAnswer");
+  const feedback = $("#dailyFeedback");
+  const value = Number(input.value);
+
+  if (input.value.trim() === "") return;
+
+  if (value === daily.a) {
+    feedback.textContent = "✓ CORRECT • +10";
+    input.disabled = true;
+    event.target.querySelector("button").disabled = true;
+    localStorage.setItem("dailyChallenge-" + today, "completed");
+  } else {
+    feedback.textContent = "✕ TRY AGAIN";
+  }
+});
